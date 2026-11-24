@@ -1,80 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Surfaces that grip on command | Taresh Guleria</title>
-<meta name="description" content="Superelastic and active interlocking metasurfaces, developed with Sandia National Laboratories. Two printed faces that lock to each other, and release when heated.">
-<link rel="canonical" href="https://taresh-tamu.github.io/work-03.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Taresh Guleria">
-<meta property="og:title" content="Surfaces that grip on command | Taresh Guleria">
-<meta property="og:description" content="Superelastic and active interlocking metasurfaces, developed with Sandia National Laboratories. Two printed faces that lock to each other, and release when heated.">
-<meta property="og:url" content="https://taresh-tamu.github.io/work-03.html">
-<meta property="og:image" content="https://taresh-tamu.github.io/img/metasurfaces.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#ffffff">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="site.css">
+<title>Adaptive LPBF parameters for thin features | Taresh Guleria</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://taresh-tamu.github.io/taresh-tamu/adaptive-control.html">
+<meta http-equiv="refresh" content="0; url=adaptive-control.html">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="nav">
-  <a class="nav__home" href="index.html"><svg class="mark" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect y="0" width="20" height="5" fill="#d8b45c"/><rect y="5" width="20" height="5" fill="#a66f2e"/><rect y="10" width="20" height="5" fill="#6d4b9c"/><rect y="15" width="20" height="5" fill="#3a63aa"/></svg><span>Taresh Guleria</span></a>
-  <nav class="nav__links" aria-label="Main"><a href="work.html" aria-current="page">Work</a><a href="publications.html">Publications</a><a href="capabilities.html">Capabilities</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="nav__cv" href="resume.pdf">Résumé (PDF)</a></nav>
-  <details class="nav__menu"><summary>Menu</summary><nav class="nav__drawer" aria-label="Main, small screens"><a href="work.html" aria-current="page">Work</a><a href="publications.html">Publications</a><a href="capabilities.html">Capabilities</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="nav__cv" href="resume.pdf">Résumé (PDF)</a></nav></details>
-</header>
-<main id="main">
-<section class="pagehead">
-  <div class="wrap">
-    <p class="crumb"><a href="work.html">Work</a> / Project 3 of 5</p>
-    <h1 class="title--project">Surfaces that grip on command</h1>
-    <p class="lede lede--wide">Superelastic and active interlocking metasurfaces, developed with Sandia National Laboratories. Two printed faces that lock to each other, and release when heated.</p>
-    <dl class="record"><div><dt>Alloy</dt><dd>Superelastic NiTi</dd></div><div><dt>Partner</dt><dd>Sandia National Laboratories</dd></div><div><dt>Methods</dt><dd>FEA, DIC, LPBF</dd></div><div><dt>My role</dt><dd>Design and validation</dd></div><div><dt>Published</dt><dd><a href="https://doi.org/10.1016/j.mattod.2026.103369">Materials Today, 2026</a> and <a href="https://doi.org/10.1016/j.matdes.2024.113137">Materials &amp; Design, 2024</a></dd></div></dl>
-  </div>
-</section>
-<section class="band band--flush-top">
-  <div class="wrap pair">
-    <figure class="fig">
-      <img src="img/metasurface-model.jpg" alt="CAD model of an interlocking metasurface: a square base plate carrying an array of curved hook features" loading="lazy">
-      <figcaption><b>The model.</b> One half of the pair. The hooks engage with an identical face rotated against it.</figcaption>
-    </figure>
-    <figure class="fig">
-      <img src="img/metasurfaces.jpg" alt="Two as-built NiTi interlocking metasurface elements standing on a build plate, hook features visible" loading="lazy">
-      <figcaption><b>As built.</b> The hook features are printed, not machined, which is what makes the geometry viable at this scale.</figcaption>
-    </figure>
-  </div>
-</section>
-<section class="band">
-  <div class="wrap body">
-    <div class="prose"><p>An interlocking metasurface is a pair of printed faces whose features engage like a mechanical hook and loop. Make them from a shape memory alloy and the engagement itself becomes switchable: high locking force at one temperature, release at another, repeatably.</p><p>My part was design and validation. I built the FEA that predicted the locking and release behaviour, then checked it against digital image correlation on the real parts, so the measured strain field could be laid over the predicted one rather than described next to it. What matters for a device is not the first lock but the hundredth, so cyclic stability was the acceptance test.</p><p>Two papers came out of this line of work: active interlocking metasurfaces in Materials &amp; Design (2024), and superelastic interlocking metasurfaces in Materials Today (2026).</p><p class="paperlinks"><a href="https://doi.org/10.1016/j.mattod.2026.103369">Read the Materials Today paper</a><br><a href="https://doi.org/10.1016/j.matdes.2024.113137">Read the Materials &amp; Design paper</a></p></div>
-    <aside aria-labelledby="route">
-      <h2 class="route-title" id="route">Process route</h2>
-      <ol class="route"><li><span class="route__op">Op 10</span><span class="route__t">FEA of locking and release</span></li><li><span class="route__op">Op 20</span><span class="route__t">LPBF of the paired faces</span></li><li><span class="route__op">Op 30</span><span class="route__t">DIC on the printed parts</span></li><li><span class="route__op">Op 40</span><span class="route__t">Measured strain laid over the prediction</span></li><li><span class="route__op">Op 50</span><span class="route__t">Cyclic stability as the acceptance test</span></li></ol>
-    </aside>
-  </div>
-</section>
-
-<section class="band band--tight">
-  <div class="wrap"><nav class="pager" aria-label="Projects"><a href="work-02.html"><span class="pager__k">Previous project</span><span class="pager__t">A seal that closes itself</span></a><a class="pager__next" href="work-04.html"><span class="pager__k">Next project</span><span class="pager__t">Where the melt pool runs hot</span></a></nav></div>
-</section>
-</main>
-<footer class="tb">
-  <div class="tb__grid">
-    <div class="tb__cell tb__id"><svg class="mark" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect y="0" width="20" height="5" fill="#d8b45c"/><rect y="5" width="20" height="5" fill="#a66f2e"/><rect y="10" width="20" height="5" fill="#6d4b9c"/><rect y="15" width="20" height="5" fill="#3a63aa"/></svg><div><span class="tb__name">Taresh Guleria</span><span class="tb__role">Ph.D. candidate, Texas A&amp;M</span></div></div>
-    <div class="tb__cell tb__page"><span class="tb__k">Page</span><span class="tb__v">Surfaces that grip on command</span></div>
-    <div class="tb__cell"><span class="tb__k">Sheet</span><span class="tb__v">6 of 11</span></div>
-    <div class="tb__cell"><span class="tb__k">Revised</span><span class="tb__v">October 2026</span></div>
-    <div class="tb__cell"><span class="tb__k">Email</span><a class="tb__v" href="mailto:taresh@tamu.edu">taresh@tamu.edu</a></div>
-    <div class="tb__cell"><span class="tb__k">Based in</span><span class="tb__v">College Station, Texas</span></div>
-  </div>
-  <nav class="tb__nav" aria-label="Footer">
-    <a href="index.html">Home</a><a href="work.html">Work</a><a href="publications.html">Publications</a><a href="capabilities.html">Capabilities</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/taresh-singh-guleria-1b9645151/">LinkedIn</a><a href="https://scholar.google.com/citations?user=kuplWmIAAAAJ">Google Scholar</a>
-  </nav>
-</footer>
-<script src="site.js" defer></script>
+<p>This page moved: <a href="adaptive-control.html">Adaptive LPBF parameters for thin features</a>.</p>
 </body>
 </html>
