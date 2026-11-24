@@ -1,279 +1,142 @@
 <!doctype html>
-<html lang="en" data-page="publications" data-type="service" data-radius="soft" data-buttons="tonal" data-motion>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Publications: Taresh Guleria</title>
-<meta name="description" content="Peer-reviewed papers by Taresh Guleria on laser powder bed fusion of NiTi and NiTiHf, with DOIs.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publications | Taresh Guleria</title>
+<meta name="description" content="Taresh Guleria is a Ph.D. candidate at Texas A&amp;M working on laser powder bed fusion of NiTi shape memory alloys. Projects, publications and contact details.">
+<link rel="canonical" href="https://taresh-tamu.github.io/publications.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Publications: Taresh Guleria">
-<meta property="og:description" content="Peer-reviewed papers by Taresh Guleria on laser powder bed fusion of NiTi and NiTiHf, with DOIs.">
-<meta property="og:image" content="https://taresh-tamu.github.io/taresh-tamu/share.jpg">
-<meta property="og:url" content="https://taresh-tamu.github.io/taresh-tamu/publications.html">
+<meta property="og:site_name" content="Taresh Guleria">
+<meta property="og:title" content="Publications | Taresh Guleria">
+<meta property="og:description" content="Taresh Guleria is a Ph.D. candidate at Texas A&amp;M working on laser powder bed fusion of NiTi shape memory alloys. Projects, publications and contact details.">
+<meta property="og:url" content="https://taresh-tamu.github.io/publications.html">
+<meta property="og:image" content="https://taresh-tamu.github.io/img/graded-ring.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#dfdedb">
-<link rel="canonical" href="https://taresh-tamu.github.io/taresh-tamu/publications.html">
-<meta name="site-kind" content="other">
-<meta name="page-type" content="service">
-<link rel="preload" href="fonts/literata-400.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="fonts/figtree.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="assets/system.css">
-<link rel="stylesheet" href="assets/ui/cards.css">
-<link rel="stylesheet" href="assets/motion/motion.css">
-<link rel="stylesheet" href="assets/layout/layout.css">
-<style>
-@font-face { font-family: "Literata"; src: url("fonts/literata-400.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "Figtree"; src: url("fonts/figtree.woff") format("woff"); font-weight: 400 600; font-style: normal; font-display: swap; }
-:root {
-  --p-bg: #dfdedb; --p-surface: #d3d2ce; --p-ink: #26251e; --p-muted: #5a5850;
-  --p-accent: #2456d6; --p-accent-ink: #ffffff; --p-action: #2456d6; --p-action-ink: #ffffff;
-  --p-inv-bg: #26251e; --p-inv-surface: #313029; --p-inv-ink: #dfdedb; --p-inv-muted: #9e9d99;
-  --p-inv-accent: #dfdedb; --p-inv-accent-ink: #26251e; --p-inv-action: #dfdedb; --p-inv-action-ink: #26251e;
-  --font-display: "Literata", Georgia, serif;
-  --font-text: "Figtree", system-ui, sans-serif;
-  --display-weight: 400;
-  --display-tracking: -0.02em;
-  --display-tracking-xl: -0.026em;
-}
-html { scrollbar-color: color-mix(in oklab, var(--p-ink) 30%, transparent) transparent; }
-
-/* the tonal secondary button keeps a hairline in the ink, so it stands off the box and the ground behind it */
-html[data-buttons="tonal"] .btn--secondary { box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--ink) 38%, transparent); }
-/* headlines that must hold the type's longest line: the graded split's long words, the 404's statement */
-[data-page="graded-builds"] .hero--split h1 { font-size: calc(var(--ly-h1) * .84); }
-[data-page="404"] .hero--statement h1 { max-width: 30ch; }
-/* the film hero's dark box keeps the page's own button pair: the blue primary, never a third look */
-.hero__over .btn-row { --action: var(--p-action); --action-ink: var(--p-action-ink); }
-/* the experience photograph: as tall as the section leaves under the heading, the two lists beside it */
-.grid.xp { align-items: stretch; }
-.xp__pic { position: relative; margin: 0; min-height: 560px; border-radius: var(--r-lg); overflow: clip; background: var(--surface); }
-.xp--3 > .xp__pic { min-height: 540px; }
-.xp__pic > img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 60%; }
-/* a linked tile answers the pointer on every device: its title's underline draws in (the photograph's 1.03 zoom
-   and the lift stay with motion.css, for a fine pointer) */
-a.tile .tile__head > h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: transparent; transition: text-decoration-color 200ms cubic-bezier(.2, .8, .2, 1); }
-a.tile:is(:hover, :focus-visible) .tile__head > h3 { text-decoration-color: var(--line-strong); }
-/* motion review (Emil Kowalski's standards): hover movement stays with a fine pointer, so a tap on a phone or a
-   tablet never leaves a stuck nav underline or a grown play disc; keyboard focus still shows both */
-@media (pointer: coarse) {
-  .nav__link:hover:not(:focus-visible)::before,
-  .nav__item:hover:not(:focus-within) > .nav__link::before { transform: scaleX(0); }
-  .ly-play:hover:not(:focus-visible) .ly-play__disc { transform: none; }
-}
-/* a press answers in 120ms (inside the 100-160ms band for press feedback), and a chapter's words leave on the
-   page's ease-out curve instead of the browser's default ease */
-:root { --m-press: 120ms; }
-html [data-moment="photo-chapters"].is-live .mo-ph__words { transition-timing-function: var(--m-ease); }
-/* the narrowest phones: the bar's name and its button share 320px with the menu button */
-@media (max-width: 359px) {
-  .nav__logo { font-size: 15px; gap: 6px; }
-  .nav__actions .btn { padding-inline: 12px; }
-}
-/* tablet, 640-1023: every section still one screen or two, so pairs and threes stay side by side and
-   a photograph under the words is a band, not a second screen */
-@media (min-width: 640px) and (max-width: 1023px) {
-  .grid > .frame--photo.start-7 { --ratio: 44% !important; }
-  .grid > .frame--photo.span-6:not([class*="start-"]) { grid-column: auto / span 6; --ratio: 100% !important; }
-  .grid > .tile.span-4, .grid > .tile.span-4:nth-child(odd of .tile):nth-last-child(1 of .tile) { grid-column: auto / span 4; }
-  .grid > .span-4.stack-5 { grid-column: auto / span 4; }
-  .grid.xp > .xp__pic { grid-column: 1 / -1; min-height: 0; aspect-ratio: 9 / 2; }
-  .grid.xp > .stack-5 { grid-column: auto / span 6; }
-  .grid.xp.xp--3 > .stack-5 { grid-column: auto / span 4; }
-  .grid > .frame--photo.start-8 { --ratio: 26% !important; }
-  .hand__film { --ratio: 56.25% !important; }
-  .pubs > li { padding-block: 12px; }
-  .footer .footer__col { grid-column: auto / span 4; }
-  html main [data-moment="pinned-chapters"]:not(.is-live) .mo-pc__visual > img { aspect-ratio: 16 / 9; max-height: 24svh; }
-  .pubs > li > .rows__name { font-size: 18px; }
-  .pubs .pub__authors { font-size: 13px; }
-}
-/* phone, under 640: a section that cannot hold its content in one screen takes two, and its last picture
-   takes what the words leave of them, so the second screen is never half empty */
-@media (max-width: 639px) {
-  main > section.p2 { --hm: 2; }
-  main > section.p2 > .wrap > .grid:last-child { flex: 1 1 auto; display: flex; flex-direction: column; gap: var(--s-8); }
-  main > section.p2 > .wrap > .grid:last-child > :is(.frame, .develop, .xp__pic) { flex: 1 1 0; min-height: 240px; max-height: calc(var(--nat, 9999px) * 1.32); height: auto; aspect-ratio: auto; --ratio: 0px !important; margin-top: 0; }
-  .grid.xp > .xp__pic { order: 3; }
-  [data-page="graded-builds"] #seals .develop > img { object-fit: cover !important; }
-  [data-page="index"] #projects .grid > .tile { grid-column: 1 / -1; }
-  [data-page="qualification"] #programmes .rows > li { padding-block: 12px; }
-  [data-page="process-windows"] #use .tile__media { --tile-ratio: 5 / 8 !important; }
-  html main > section#loop[data-moment="pinned-chapters"]:not(.is-live) .mo-pc__visual > img { aspect-ratio: 1 / 1; max-height: none; }
-  .closing__links .footer__col { grid-column: auto / span 4; }
-  html main > section[data-moment="pinned-chapters"][data-moment]:not(.is-live) { min-height: 200lvh; }
-  [data-page="index"] #projects,
-  [data-page="process-windows"] #use,
-  [data-page="about"] #skills,
-  [data-page="publications"] #first { --hm: 2; }
-  .hand__film { --ratio: 56.25% !important; }
-  .grid.xp.xp--3 .rows--spec { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--gutter); }
-  .pubs > li { padding-block: 12px; }
-  [data-page="adaptive-control"] :is(#trials, #result) .frame--photo { --ratio: 58% !important; }
-  [data-page="work"] #projects .tile__media { --tile-ratio: 16 / 9; }
-}
-
-.pubs > li > .rows__name { font-family: var(--font-display); font-weight: var(--display-weight); font-size: var(--t-card); line-height: 1.35; max-width: 62ch; }
-.pubs > li > p { grid-column: 1; }
-.pubs > li { padding-block: 14px; }
-.pubs > li:first-child { padding-top: 0; }
-.pubs .pub__authors { color: var(--ink); font-size: var(--t-small); }
-.pubs .pub__venue { display: flex; flex-wrap: wrap; gap: var(--s-4); align-items: baseline; }
-@media (max-width: 639px) {
-  .pubs > li > .rows__name { font-size: 16px; }
-  .pubs .pub__authors { display: none; }
-  #coauthored .frame--photo { --ratio: 46% !important; }
-}
-</style>
-<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
-<link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js"><link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<!-- type: service (people hire Taresh Guleria: LPBF process development)
-     deal: hero word (type leads: no photograph for a list) · moment word-highlight (#note); nav nav-mega, close close-type, footer footer-columns, rhythm surface-pairs,
-     buttons tonal, mark stack, palette stone-blueprint (blueprint blue on the warm grey of powder and
-     build plates), type literata (self-hosted), no grounds, no effect (kind other) -->
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav">
-  <div class="wrap nav__bar">
-    <a class="skip-link" href="#top">Skip to content</a>
-    <a class="nav__logo" href="index.html"><span class="mark" data-mark="stack" aria-hidden="true"></span>Taresh Guleria</a>
-    <nav class="nav__links" aria-label="Main">
-      <div class="nav__item">
-        <a class="nav__link" href="work.html">Work <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="nav__menu">
-          <div class="wrap grid">
-            <div class="menu-col span-3">
-              <p class="t-label">Process control</p>
-              <a href="adaptive-control.html">Adaptive parameters<span>Parameters set layer by layer</span></a>
-              <a href="process-windows.html">Process windows<span>Printability maps for NiTi</span></a>
-              <a href="qualification.html">Qualification<span>In-situ data at EOS</span></a>
-            </div>
-            <div class="menu-col span-3">
-              <p class="t-label">Parts</p>
-              <a href="graded-builds.html">Graded builds<span>Composition graded in one build</span></a>
-              <a href="work.html">All projects<span>Four projects on one page</span></a>
-            </div>
-            <a class="menu-card span-3 start-10" href="adaptive-control.html">
-              <div class="panel"><img class="frame__img" src="img/model.jpg" srcset="img/model-480.jpg 480w, img/model-800.jpg 800w, img/model-1200.jpg 1200w, img/model.jpg 1487w" sizes="(max-width: 639px) 93vw, (max-width: 1023px) 94vw, 937px" alt="Model of Sandia’s interlocking geometry: two rows of thin U-shaped arms on a base plate" width="1487" height="1191" loading="lazy" decoding="async"></div>
-              <span class="t-card">Adaptive parameters</span>
-              <span class="t-small muted">First-author paper in preparation</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="nav__item"><a class="nav__link" href="about.html">About</a></div>
-      <div class="nav__item"><a class="nav__link" href="publications.html" aria-current="page">Publications</a></div>
-      <div class="nav__item"><a class="nav__link" href="resume.pdf">Résumé</a></div>
-    </nav>
-    <div class="nav__actions">
-      <a class="btn btn--primary" href="mailto:taresh@tamu.edu">Email Taresh</a>
-    </div>
-    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
-      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    </button>
-  </div>
+  <a class="nav__home" href="index.html"><svg class="mark" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect y="0" width="20" height="5" fill="#d8b45c"/><rect y="5" width="20" height="5" fill="#a66f2e"/><rect y="10" width="20" height="5" fill="#6d4b9c"/><rect y="15" width="20" height="5" fill="#3a63aa"/></svg><span>Taresh Guleria</span></a>
+  <nav class="nav__links" aria-label="Main"><a href="work.html">Work</a><a href="publications.html" aria-current="page">Publications</a><a href="capabilities.html">Capabilities</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="nav__cv" href="resume.pdf">Résumé (PDF)</a></nav>
+  <details class="nav__menu"><summary>Menu</summary><nav class="nav__drawer" aria-label="Main, small screens"><a href="work.html">Work</a><a href="publications.html" aria-current="page">Publications</a><a href="capabilities.html">Capabilities</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="nav__cv" href="resume.pdf">Résumé (PDF)</a></nav></details>
 </header>
-
-<main id="top">
-
-  <section class="hero hero--word" data-enter aria-labelledby="hero-h">
-    <div class="wrap"><div class="hero-text hero__in">
-      <h1 id="hero-h">Papers on metal LPBF</h1>
-      <div class="grid hero__foot">
-        <div class="span-6">
-          <p class="hero__lead">Seven peer-reviewed papers so far, in Additive Manufacturing, Acta Materialia, Materials Today and Materials &amp; Design, with two more first-author papers on the way.</p>
-          <div class="btn-row"><a class="btn btn--primary" href="mailto:taresh@tamu.edu">Email Taresh<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="https://scholar.google.com/citations?user=kuplWmIAAAAJ">See Google Scholar</a></div>
-        </div>
-        <dl class="hero__facts hero__facts--col span-5 start-8">
-          <div><dt>Latest first-author paper</dt><dd>Additive Manufacturing, 2026</dd></div>
-          <div><dt>Under review</dt><dd>Materials &amp; Design</dd></div>
-          <div><dt>Co-authors from</dt><dd>Sandia and Oak Ridge</dd></div>
-          <div><dt>Talks in 2025</dt><dd>ASTM ICAM and SFF Symposium</dd></div>
-        </dl>
-      </div>
-    </div></div>
-  </section>
-
-  <section class="section ground-surface p2" id="first" aria-labelledby="first-h">
-    <div class="wrap">
-      <div class="section-head">
-          <h2 id="first-h">First-author papers, 2021 to 2026</h2>
-        </div>
-      <div class="grid">
-        <div class="span-7"><ul class="rows pubs"><li><span class="rows__name">Beyond the material-per-function paradigm: functionally graded active structures via laser powder bed fusion additive manufacturing of nickel-titanium shape memory alloys</span><span class="rows__value">First author</span><p class="pub__authors"><b>T. Guleria</b>, A. Elsayed, K.C. Atli, R. Arroyave, I. Karaman, A. Elwany</p><p class="pub__venue">Additive Manufacturing, 2026 <a class="link" href="https://doi.org/10.1016/j.addma.2026.105276">DOI</a></p></li><li><span class="rows__name">Adaptive sealing structures with functionally graded NiTi shape memory alloy rings</span><span class="rows__value">First author</span><p class="pub__authors"><b>T. Guleria</b>, A. Elsayed, A. Aga, J. Mingear, K.C. Atli, A. Elwany, I. Karaman</p><p class="pub__venue">Materials &amp; Design, submitted</p></li><li><span class="rows__name">Effect of scan length and geometry on the thermal history behaviour of melt pools for Ni-rich NiTi via LPBF</span><span class="rows__value">First author</span><p class="pub__authors"><b>T. Guleria</b>, A. Elsayed, K.C. Atli, A. Elwany, I. Karaman</p><p class="pub__venue">In preparation</p></li><li><span class="rows__name">Fabrication of Kevlar-reinforced UHMWPE composite through microwave-assisted compression molding for body armor applications</span><span class="rows__value">First author</span><p class="pub__authors"><b>T. Guleria</b>, N. Verma, S. Zafar, V. Jain</p><p class="pub__venue">J. Reinforced Plastics and Composites, 2021 <a class="link" href="https://doi.org/10.1177/0731684420959449">DOI</a></p></li></ul></div>
-        <figure class="frame frame--photo span-5 start-8 " style="--ratio: 96%; --nat: 1600px"><img class="frame__img" src="img/ring.jpg" srcset="img/ring-480.jpg 480w, img/ring-800.jpg 800w, img/ring-1200.jpg 1200w, img/ring.jpg 1600w" sizes="(max-width: 639px) 160vw, (max-width: 1023px) 94vw, 630px" alt="The graded NiTi ring from the Additive Manufacturing 2026 paper, banded in heat tint up its height" width="1600" height="1600" loading="lazy" decoding="async"></figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="section g2" id="coauthored" aria-labelledby="coauthored-h">
-    <div class="wrap">
-      <div class="group">
-        <div class="section-head">
-          <h2 id="coauthored-h">Co-authored papers, 2023 to 2026</h2>
-        </div>
-        <div class="grid">
-          <div class="span-7"><ul class="rows pubs"><li><span class="rows__name">Superelastic interlocking metasurfaces enabled by additive manufacturing</span><span class="rows__value">Second author</span><p class="pub__authors">A. Elsayed, <b>T. Guleria</b>, K.C. Atli, B. Young, P.J. Noell, B.L. Boyce, A. Elwany, R. Arroyave, I. Karaman</p><p class="pub__venue">Materials Today, 2026 <a class="link" href="https://doi.org/10.1016/j.mattod.2026.103369">DOI</a></p></li><li><span class="rows__name">Functionally graded NiTiHf high-temperature shape memory alloys using laser powder bed fusion: localized phase transformation control and multi-stage actuation</span><span class="rows__value">Second author</span><p class="pub__authors">A. Elsayed, <b>T. Guleria</b>, H. Tian, B.P. Sahu, K.C. Atli, A. Olleak, A. Elwany, R. Arroyave, D. Lagoudas, I. Karaman</p><p class="pub__venue">Acta Materialia, 2025 <a class="link" href="https://doi.org/10.1016/j.actamat.2025.121175">DOI</a></p></li><li><span class="rows__name">Microstructure-sensitive mechanical behavior of an additively manufactured pseudoelastic shape memory alloy</span><span class="rows__value">Co-author</span><p class="pub__authors">P. Fernandez-Zelaia, C. Ledford, C.M. Fancher, S. Graham, <b>T. Guleria</b> and others</p><p class="pub__venue">Additive Manufacturing Letters, 2025 <a class="link" href="https://doi.org/10.1016/j.addlet.2025.100270">DOI</a></p></li></ul></div>
-          <figure class="frame frame--photo span-5 start-8 " style="--ratio: 80%; --nat: 1835px"><img class="frame__img" src="img/metasurfaces.jpg" srcset="img/metasurfaces-480.jpg 480w, img/metasurfaces-800.jpg 800w, img/metasurfaces-1200.jpg 1200w, img/metasurfaces-1600.jpg 1600w, img/metasurfaces.jpg 2400w" sizes="(max-width: 639px) 93vw, (max-width: 1023px) 94vw, 842px" alt="Superelastic interlocking parts from the Materials Today 2026 paper, standing on the build plate" width="2400" height="1835" loading="lazy" decoding="async"></figure>
-        </div>
-      </div>
-      <div class="group">
-        <div class="grid">
-          <div class="span-7"><ul class="rows pubs"><li><span class="rows__name">Active interlocking metasurfaces enabled by shape memory alloys</span><span class="rows__value">Second author</span><p class="pub__authors">A. Elsayed, <b>T. Guleria</b>, K.C. Atli, O. Bolmin, B. Young, P.J. Noell, B.L. Boyce and others</p><p class="pub__venue">Materials &amp; Design, 2024 <a class="link" href="https://doi.org/10.1016/j.matdes.2024.113137">DOI</a></p></li><li><span class="rows__name">Cybersecurity and data science curriculum for secondary student computing programs</span><span class="rows__value">Co-author</span><p class="pub__authors">R. Lawrence, Z. He, D.K. Chakravorty, W. Brashear, H. Liu, S.B. Nite, L.M. Perez, <b>T. Guleria</b> and others</p><p class="pub__venue">J. Computational Science Education, 2023 <a class="link" href="https://doi.org/10.22369/issn.2153-4136/14/2/2">DOI</a></p></li></ul></div>
-          <figure class="frame frame--photo span-5 start-8 " style="--ratio: 80%; --nat: 1191px"><img class="frame__img" src="img/model.jpg" srcset="img/model-480.jpg 480w, img/model-800.jpg 800w, img/model-1200.jpg 1200w, img/model.jpg 1487w" sizes="(max-width: 639px) 93vw, (max-width: 1023px) 94vw, 937px" alt="Model of the interlocking geometry from the Materials &amp;amp; Design 2024 paper: two rows of thin U-shaped arms on a base plate" width="1487" height="1191" loading="lazy" decoding="async"></figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section statement" id="note" data-moment="word-highlight" aria-label="The first-author work">
-    <div class="wrap">
-      <p class="mo-wh__text">Three of these are first-author LPBF studies: the graded builds, the sealing rings and the scan-length work. The rest grew out of shared builds with <strong>Sandia, Oak Ridge</strong> and the Elwany lab.</p>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer closing" id="contact" aria-labelledby="close-h">
+<main id="main">
+<section class="pagehead">
   <div class="wrap">
-    <div class="closing__cta close--type">
-      <div class="section-head">
-        <h2 id="close-h">Open to LPBF process development roles</h2>
-        <p>Industry R&amp;D in metal additive manufacturing. Email reaches me fastest, at taresh@tamu.edu.</p>
-      </div>
-      <a class="btn btn--primary btn--xl" href="mailto:taresh@tamu.edu">Email Taresh<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-    </div>
-    <div class="closing__links">
-      <div class="grid">
-        <div class="span-4 stack-4">
-          <a class="nav__logo" href="index.html"><span class="mark" data-mark="stack" aria-hidden="true"></span>Taresh Guleria</a>
-          <p class="footer__lede">LPBF process control at Texas A&amp;M.</p>
-        </div>
-        <div class="span-2 start-7 footer__col"><h3>Work</h3><ul>
-          <li><a href="adaptive-control.html">Adaptive parameters</a></li>
-          <li><a href="process-windows.html">Process windows</a></li>
-          <li><a href="qualification.html">Qualification</a></li>
-          <li><a href="graded-builds.html">Graded builds</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>About</h3><ul>
-          <li><a href="about.html">About me</a></li>
-          <li><a href="publications.html">Publications</a></li>
-          <li><a href="resume.pdf">Résumé</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Contact</h3><ul>
-          <li><a href="mailto:taresh@tamu.edu">Email</a></li>
-          <li><a href="https://www.linkedin.com/in/taresh-singh-guleria-1b9645151/">LinkedIn</a></li>
-          <li><a href="https://scholar.google.com/citations?user=kuplWmIAAAAJ">Google Scholar</a></li>
-          <li><a href="https://github.com/taresh-tamu">GitHub</a></li></ul></div>
-      </div>
-      <div class="footer__legal">
-        <span>&copy; 2026 Taresh Guleria</span>
-        <span>College Station, Texas</span>
-      </div>
+    <h1 class="title">Publications</h1>
+    <p class="lede lede--wide">Seven peer-reviewed papers, with two more on the way. The journals include Acta Materialia, Materials Today and Additive Manufacturing.</p>
+    <div class="filter" role="group" aria-label="Filter publications">
+      <button type="button" data-show="all" aria-pressed="true">All papers</button>
+      <button type="button" data-show="lead" aria-pressed="false">First and co-first author</button>
+      <span class="filter-count" aria-live="polite"></span>
     </div>
   </div>
+</section>
+<section class="band band--flush-top">
+  <div class="wrap">
+    <div class="pubgroup">
+      <h2>Under way</h2>
+      <ul class="pubs"><li data-lead="true">
+        <span class="pubs__y">Submitted</span>
+        <div>
+          <p class="pubs__t">Adaptive sealing structures with functionally graded NiTi shape memory alloy rings</p>
+          <p class="pubs__a"><b>T. Guleria</b>, A. Elsayed, A. Aga, J. Mingear, K.C. Atli, A. Elwany, I. Karaman</p>
+          <p class="pubs__v">Materials &amp; Design, submitted. <span class="pubs__role">First author.</span></p>
+        </div>
+      </li><li data-lead="true">
+        <span class="pubs__y">In prep.</span>
+        <div>
+          <p class="pubs__t">Effect of scan length and geometry on the thermal history behaviour of melt pools for Ni-rich NiTi via LPBF</p>
+          <p class="pubs__a"><b>T. Guleria</b>, A. Elsayed, K.C. Atli, A. Elwany, I. Karaman</p>
+          <p class="pubs__v">In preparation. <span class="pubs__role">First author.</span></p>
+        </div>
+      </li></ul>
+    </div>
+    <div class="pubgroup">
+      <h2>Published</h2>
+      <ul class="pubs"><li data-lead="true">
+        <span class="pubs__y">2026</span>
+        <div>
+          <p class="pubs__t">Beyond the material-per-function paradigm: functionally graded active structures via laser powder bed fusion additive manufacturing of nickel-titanium shape memory alloys</p>
+          <p class="pubs__a"><b>T. Guleria</b>, A. Elsayed, K.C. Atli, R. Arroyave, I. Karaman, A. Elwany</p>
+          <p class="pubs__v">Additive Manufacturing, 2026. <span class="pubs__role">Co-first author.</span> <a href="https://doi.org/10.1016/j.addma.2026.105276">doi.org/10.1016/j.addma.2026.105276</a></p>
+        </div>
+      </li><li data-lead="false">
+        <span class="pubs__y">2026</span>
+        <div>
+          <p class="pubs__t">Superelastic interlocking metasurfaces enabled by additive manufacturing</p>
+          <p class="pubs__a">A. Elsayed, <b>T. Guleria</b>, K.C. Atli, B. Young, P.J. Noell, B.L. Boyce, A. Elwany, R. Arroyave, I. Karaman</p>
+          <p class="pubs__v">Materials Today, 2026. <span class="pubs__role">Second author.</span> <a href="https://doi.org/10.1016/j.mattod.2026.103369">doi.org/10.1016/j.mattod.2026.103369</a></p>
+        </div>
+      </li><li data-lead="false">
+        <span class="pubs__y">2025</span>
+        <div>
+          <p class="pubs__t">Functionally graded NiTiHf high-temperature shape memory alloys using laser powder bed fusion: localized phase transformation control and multi-stage actuation</p>
+          <p class="pubs__a">A. Elsayed, <b>T. Guleria</b>, H. Tian, B.P. Sahu, K.C. Atli, A. Olleak, A. Elwany, R. Arroyave, D. Lagoudas, I. Karaman</p>
+          <p class="pubs__v">Acta Materialia, 121175, 2025. <span class="pubs__role">Second author.</span> <a href="https://doi.org/10.1016/j.actamat.2025.121175">doi.org/10.1016/j.actamat.2025.121175</a></p>
+        </div>
+      </li><li data-lead="false">
+        <span class="pubs__y">2025</span>
+        <div>
+          <p class="pubs__t">Microstructure-sensitive mechanical behavior of an additively manufactured pseudoelastic shape memory alloy</p>
+          <p class="pubs__a">P. Fernandez-Zelaia, C. Ledford, C.M. Fancher, S. Graham, <b>T. Guleria</b>, et al.</p>
+          <p class="pubs__v">Additive Manufacturing Letters, 100270, 2025. <span class="pubs__role">Co-author.</span> <a href="https://doi.org/10.1016/j.addlet.2025.100270">doi.org/10.1016/j.addlet.2025.100270</a></p>
+        </div>
+      </li><li data-lead="false">
+        <span class="pubs__y">2024</span>
+        <div>
+          <p class="pubs__t">Active interlocking metasurfaces enabled by shape memory alloys</p>
+          <p class="pubs__a">A. Elsayed, <b>T. Guleria</b>, K.C. Atli, O. Bolmin, B. Young, P.J. Noell, B.L. Boyce, et al.</p>
+          <p class="pubs__v">Materials &amp; Design 244, 113137, 2024. <span class="pubs__role">Second author.</span> <a href="https://doi.org/10.1016/j.matdes.2024.113137">doi.org/10.1016/j.matdes.2024.113137</a></p>
+        </div>
+      </li><li data-lead="false">
+        <span class="pubs__y">2023</span>
+        <div>
+          <p class="pubs__t">Cybersecurity and data science curriculum for secondary student computing programs</p>
+          <p class="pubs__a">R. Lawrence, Z. He, D.K. Chakravorty, W. Brashear, H. Liu, S.B. Nite, L.M. Perez, <b>T. Guleria</b>, et al.</p>
+          <p class="pubs__v">Journal of Computational Science Education, 2023. <span class="pubs__role">Co-author.</span> <a href="https://doi.org/10.22369/issn.2153-4136/14/2/2">doi.org/10.22369/issn.2153-4136/14/2/2</a></p>
+        </div>
+      </li><li data-lead="true">
+        <span class="pubs__y">2021</span>
+        <div>
+          <p class="pubs__t">Fabrication of Kevlar®-reinforced UHMWPE composite through microwave-assisted compression molding for body armor applications</p>
+          <p class="pubs__a"><b>T. Guleria</b>, N. Verma, S. Zafar, V. Jain</p>
+          <p class="pubs__v">Journal of Reinforced Plastics and Composites 40(7–8), 307–320, 2021. <span class="pubs__role">First author.</span> <a href="https://doi.org/10.1177/0731684420959449">doi.org/10.1177/0731684420959449</a></p>
+        </div>
+      </li></ul>
+    </div>
+    <div class="pubgroup">
+      <h2>Conferences</h2>
+      <ul class="talks">
+        <li><strong>ASTM International Conference on Advanced Manufacturing</strong>, Las Vegas, 2025. Lead author, additive manufacturing of functional NiTi alloys.</li>
+        <li><strong>Solid Freeform Fabrication Symposium</strong>, Austin, 2025. Co-author, mechanical behaviour of AM pseudoelastic nitinol.</li>
+        <li><strong>International Conference on Composites Manufacturing</strong>, IIT Mandi, 2022.</li>
+      </ul>
+      <div class="actions"><a class="textlink" href="https://scholar.google.com/citations?user=kuplWmIAAAAJ">Full record on Google Scholar</a></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="tb">
+  <div class="tb__grid">
+    <div class="tb__cell tb__id"><svg class="mark" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect y="0" width="20" height="5" fill="#d8b45c"/><rect y="5" width="20" height="5" fill="#a66f2e"/><rect y="10" width="20" height="5" fill="#6d4b9c"/><rect y="15" width="20" height="5" fill="#3a63aa"/></svg><div><span class="tb__name">Taresh Guleria</span><span class="tb__role">Ph.D. candidate, Texas A&amp;M</span></div></div>
+    <div class="tb__cell tb__page"><span class="tb__k">Page</span><span class="tb__v">Publications</span></div>
+    <div class="tb__cell"><span class="tb__k">Sheet</span><span class="tb__v">9 of 11</span></div>
+    <div class="tb__cell"><span class="tb__k">Revised</span><span class="tb__v">October 2026</span></div>
+    <div class="tb__cell"><span class="tb__k">Email</span><a class="tb__v" href="mailto:taresh@tamu.edu">taresh@tamu.edu</a></div>
+    <div class="tb__cell"><span class="tb__k">Based in</span><span class="tb__v">College Station, Texas</span></div>
+  </div>
+  <nav class="tb__nav" aria-label="Footer">
+    <a href="index.html">Home</a><a href="work.html">Work</a><a href="publications.html">Publications</a><a href="capabilities.html">Capabilities</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="https://www.linkedin.com/in/taresh-singh-guleria-1b9645151/">LinkedIn</a><a href="https://scholar.google.com/citations?user=kuplWmIAAAAJ">Google Scholar</a>
+  </nav>
 </footer>
-<script type="module" src="assets/system.js"></script>
-<script type="module" src="assets/motion/motion.js"></script>
-<script type="module" src="assets/layout/layout.js"></script>
+<script src="site.js" defer></script>
 </body>
 </html>
