@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" data-page="process-windows" data-type="service" data-radius="soft" data-buttons="tonal" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Printability maps for LPBF of NiTi: Taresh Guleria</title>
+<meta name="description" content="How Taresh Guleria builds LPBF process windows for NiTi: an Eagar-Tsai melt pool model calibrated on single tracks with Bayesian inference.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Printability maps for LPBF of NiTi: Taresh Guleria">
+<meta property="og:description" content="How Taresh Guleria builds LPBF process windows for NiTi: an Eagar-Tsai melt pool model calibrated on single tracks with Bayesian inference.">
+<meta property="og:image" content="https://taresh-tamu.github.io/taresh-tamu/share.jpg">
+<meta property="og:url" content="https://taresh-tamu.github.io/taresh-tamu/process-windows.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#dfdedb">
+<link rel="canonical" href="https://taresh-tamu.github.io/taresh-tamu/process-windows.html">
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<link rel="preload" href="fonts/literata-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="fonts/figtree.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<style>
+@font-face { font-family: "Literata"; src: url("fonts/literata-400.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Figtree"; src: url("fonts/figtree.woff") format("woff"); font-weight: 400 600; font-style: normal; font-display: swap; }
+:root {
+  --p-bg: #dfdedb; --p-surface: #d3d2ce; --p-ink: #26251e; --p-muted: #5a5850;
+  --p-accent: #2456d6; --p-accent-ink: #ffffff; --p-action: #2456d6; --p-action-ink: #ffffff;
+  --p-inv-bg: #26251e; --p-inv-surface: #313029; --p-inv-ink: #dfdedb; --p-inv-muted: #9e9d99;
+  --p-inv-accent: #dfdedb; --p-inv-accent-ink: #26251e; --p-inv-action: #dfdedb; --p-inv-action-ink: #26251e;
+  --font-display: "Literata", Georgia, serif;
+  --font-text: "Figtree", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.02em;
+  --display-tracking-xl: -0.026em;
+}
+html { scrollbar-color: color-mix(in oklab, var(--p-ink) 30%, transparent) transparent; }
+
+/* the tonal secondary button keeps a hairline in the ink, so it stands off the box and the ground behind it */
+html[data-buttons="tonal"] .btn--secondary { box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--ink) 38%, transparent); }
+/* headlines that must hold the type's longest line: the graded split's long words, the 404's statement */
+[data-page="graded-builds"] .hero--split h1 { font-size: calc(var(--ly-h1) * .84); }
+[data-page="404"] .hero--statement h1 { max-width: 30ch; }
+/* the film hero's dark box keeps the page's own button pair: the blue primary, never a third look */
+.hero__over .btn-row { --action: var(--p-action); --action-ink: var(--p-action-ink); }
+/* the experience photograph: as tall as the section leaves under the heading, the two lists beside it */
+.grid.xp { align-items: stretch; }
+.xp__pic { position: relative; margin: 0; min-height: 560px; border-radius: var(--r-lg); overflow: clip; background: var(--surface); }
+.xp--3 > .xp__pic { min-height: 540px; }
+.xp__pic > img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 60%; }
+/* a linked tile answers the pointer on every device: its title's underline draws in (the photograph's 1.03 zoom
+   and the lift stay with motion.css, for a fine pointer) */
+a.tile .tile__head > h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: transparent; transition: text-decoration-color 200ms cubic-bezier(.2, .8, .2, 1); }
+a.tile:is(:hover, :focus-visible) .tile__head > h3 { text-decoration-color: var(--line-strong); }
+/* motion review (Emil Kowalski's standards): hover movement stays with a fine pointer, so a tap on a phone or a
+   tablet never leaves a stuck nav underline or a grown play disc; keyboard focus still shows both */
+@media (pointer: coarse) {
+  .nav__link:hover:not(:focus-visible)::before,
+  .nav__item:hover:not(:focus-within) > .nav__link::before { transform: scaleX(0); }
+  .ly-play:hover:not(:focus-visible) .ly-play__disc { transform: none; }
+}
+/* a press answers in 120ms (inside the 100-160ms band for press feedback), and a chapter's words leave on the
+   page's ease-out curve instead of the browser's default ease */
+:root { --m-press: 120ms; }
+html [data-moment="photo-chapters"].is-live .mo-ph__words { transition-timing-function: var(--m-ease); }
+/* the narrowest phones: the bar's name and its button share 320px with the menu button */
+@media (max-width: 359px) {
+  .nav__logo { font-size: 15px; gap: 6px; }
+  .nav__actions .btn { padding-inline: 12px; }
+}
+/* tablet, 640-1023: every section still one screen or two, so pairs and threes stay side by side and
+   a photograph under the words is a band, not a second screen */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .grid > .frame--photo.start-7 { --ratio: 44% !important; }
+  .grid > .frame--photo.span-6:not([class*="start-"]) { grid-column: auto / span 6; --ratio: 100% !important; }
+  .grid > .tile.span-4, .grid > .tile.span-4:nth-child(odd of .tile):nth-last-child(1 of .tile) { grid-column: auto / span 4; }
+  .grid > .span-4.stack-5 { grid-column: auto / span 4; }
+  .grid.xp > .xp__pic { grid-column: 1 / -1; min-height: 0; aspect-ratio: 9 / 2; }
+  .grid.xp > .stack-5 { grid-column: auto / span 6; }
+  .grid.xp.xp--3 > .stack-5 { grid-column: auto / span 4; }
+  .grid > .frame--photo.start-8 { --ratio: 26% !important; }
+  .hand__film { --ratio: 56.25% !important; }
+  .pubs > li { padding-block: 12px; }
+  .footer .footer__col { grid-column: auto / span 4; }
+  html main [data-moment="pinned-chapters"]:not(.is-live) .mo-pc__visual > img { aspect-ratio: 16 / 9; max-height: 24svh; }
+  .pubs > li > .rows__name { font-size: 18px; }
+  .pubs .pub__authors { font-size: 13px; }
+}
+/* phone, under 640: a section that cannot hold its content in one screen takes two, and its last picture
+   takes what the words leave of them, so the second screen is never half empty */
+@media (max-width: 639px) {
+  main > section.p2 { --hm: 2; }
+  main > section.p2 > .wrap > .grid:last-child { flex: 1 1 auto; display: flex; flex-direction: column; gap: var(--s-8); }
+  main > section.p2 > .wrap > .grid:last-child > :is(.frame, .develop, .xp__pic) { flex: 1 1 0; min-height: 240px; max-height: calc(var(--nat, 9999px) * 1.32); height: auto; aspect-ratio: auto; --ratio: 0px !important; margin-top: 0; }
+  .grid.xp > .xp__pic { order: 3; }
+  [data-page="graded-builds"] #seals .develop > img { object-fit: cover !important; }
+  [data-page="index"] #projects .grid > .tile { grid-column: 1 / -1; }
+  [data-page="qualification"] #programmes .rows > li { padding-block: 12px; }
+  [data-page="process-windows"] #use .tile__media { --tile-ratio: 5 / 8 !important; }
+  html main > section#loop[data-moment="pinned-chapters"]:not(.is-live) .mo-pc__visual > img { aspect-ratio: 1 / 1; max-height: none; }
+  .closing__links .footer__col { grid-column: auto / span 4; }
+  html main > section[data-moment="pinned-chapters"][data-moment]:not(.is-live) { min-height: 200lvh; }
+  [data-page="index"] #projects,
+  [data-page="process-windows"] #use,
+  [data-page="about"] #skills,
+  [data-page="publications"] #first { --hm: 2; }
+  .hand__film { --ratio: 56.25% !important; }
+  .grid.xp.xp--3 .rows--spec { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--gutter); }
+  .pubs > li { padding-block: 12px; }
+  [data-page="adaptive-control"] :is(#trials, #result) .frame--photo { --ratio: 58% !important; }
+  [data-page="work"] #projects .tile__media { --tile-ratio: 16 / 9; }
+}
+
+/* picture-develops: the section's one photograph, on the split's right column, as tall as the text beside it */
+.develop { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(680px, var(--ly-fit, 680px)); }
+.develop > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 1023px) { .develop { height: auto; aspect-ratio: 5 / 2; margin-top: var(--s-7); } }
+@media (max-width: 639px) { .develop { aspect-ratio: 4 / 3; } }
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js"><link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
+</head>
+<body>
+<!-- type: service (people hire Taresh Guleria: LPBF process development)
+     deal: hero film (a still in the cinema frame, no film to play) · moment picture-develops (#method: the laser photograph comes up once as it enters); nav nav-mega, close close-type, footer footer-columns, rhythm surface-pairs,
+     buttons tonal, mark stack, palette stone-blueprint (blueprint blue on the warm grey of powder and
+     build plates), type literata (self-hosted), no grounds, no effect (kind other) -->
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="nav__logo" href="index.html"><span class="mark" data-mark="stack" aria-hidden="true"></span>Taresh Guleria</a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="nav__item">
+        <a class="nav__link" href="work.html" aria-current="page">Work <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu">
+          <div class="wrap grid">
+            <div class="menu-col span-3">
+              <p class="t-label">Process control</p>
+              <a href="adaptive-control.html">Adaptive parameters<span>Parameters set layer by layer</span></a>
+              <a href="process-windows.html">Process windows<span>Printability maps for NiTi</span></a>
+              <a href="qualification.html">Qualification<span>In-situ data at EOS</span></a>
+            </div>
+            <div class="menu-col span-3">
+              <p class="t-label">Parts</p>
+              <a href="graded-builds.html">Graded builds<span>Composition graded in one build</span></a>
+              <a href="work.html">All projects<span>Four projects on one page</span></a>
+            </div>
+            <a class="menu-card span-3 start-10" href="adaptive-control.html">
+              <div class="panel"><img class="frame__img" src="img/model.jpg" srcset="img/model-480.jpg 480w, img/model-800.jpg 800w, img/model-1200.jpg 1200w, img/model.jpg 1487w" sizes="(max-width: 639px) 83vw, (max-width: 1023px) 40vw, 321px" alt="Model of Sandia’s interlocking geometry: two rows of thin U-shaped arms on a base plate" width="1487" height="1191" loading="lazy" decoding="async"></div>
+              <span class="t-card">Adaptive parameters</span>
+              <span class="t-small muted">First-author paper in preparation</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav__item"><a class="nav__link" href="about.html">About</a></div>
+      <div class="nav__item"><a class="nav__link" href="publications.html">Publications</a></div>
+      <div class="nav__item"><a class="nav__link" href="resume.pdf">Résumé</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="mailto:taresh@tamu.edu">Email Taresh</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero hero--film" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text hero__in">
+      <div class="hero__media hero__fill">
+        <img src="img/tracks-wide.jpg" srcset="img/tracks-wide-480.jpg 480w, img/tracks-wide-800.jpg 800w, img/tracks-wide-1200.jpg 1200w, img/tracks-wide.jpg 1580w" sizes="(max-width: 639px) 389vw, (max-width: 1023px) 255vw, 1499px" alt="Single-layer laser tracks from 2 to 50 mm long on a NiTi plate" width="1580" height="800" fetchpriority="high" style="--ly-pos: 62% 50%; --ly-pos-phone: 50% 50%">
+        <div class="hero__over">
+          <div>
+            <h1 id="hero-h">Printability maps for LPBF of NiTi</h1>
+            <p class="hero__lead">A melt pool model, calibrated on single tracks 2 to 50 mm long, shows which power and speed settings build dense NiTi and how far apart the tracks can sit.</p>
+            <div class="btn-row"><a class="btn btn--primary" href="mailto:taresh@tamu.edu">Email Taresh<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="resume.pdf" download>Download résumé</a></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section p2" id="method" aria-labelledby="method-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5">
+          <div class="section-head">
+          <h2 id="method-h">How a map is built</h2>
+        </div>
+          <ul class="rows"><li><span class="rows__name">Model</span><p>Eagar-Tsai melt pool model for width and depth at each power and speed.</p></li><li><span class="rows__name">Calibration</span><p>Bayesian inference fits the model to measured single tracks, with uncertainty bands.</p></li><li><span class="rows__name">Next tracks</span><p>Bayesian optimization chooses which settings to print next.</p></li><li><span class="rows__name">Limits</span><p>Keyholing past a depth of width/1.5, lack of fusion below layer thickness, balling past a length-to-width ratio of 2.</p></li></ul>
+        </div>
+        <!-- picture-develops: one photograph with a clear subject, half the container wide; the film look on a service page -->
+        <figure class="develop span-6 start-7" data-moment="picture-develops" style="--nat: 1891px"><img src="img/hero-laser.jpg" srcset="img/hero-laser-480.jpg 480w, img/hero-laser-800.jpg 800w, img/hero-laser-1200.jpg 1200w, img/hero-laser-1600.jpg 1600w, img/hero-laser.jpg 2400w" sizes="(max-width: 639px) 343vw, (max-width: 1023px) 100vw, 970px" alt="The laser flaring as it melts powder on the build plate" width="2400" height="1891" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="use" aria-labelledby="use-h">
+    <div class="wrap">
+      <div class="section-head">
+          <h2 id="use-h">Where the maps went</h2>
+          <p>They set the starting window for the graded NiTi builds and for the adaptive control loop.</p>
+        </div>
+      <div class="grid">
+          <a class="tile span-6" href="graded-builds.html">
+            <div class="tile__media" style="--tile-ratio: 16 / 10"><img src="img/ring.jpg" srcset="img/ring-480.jpg 480w, img/ring-800.jpg 800w, img/ring-1200.jpg 1200w, img/ring.jpg 1600w" sizes="(max-width: 639px) 149vw, (max-width: 1023px) 46vw, 666px" alt="A printed NiTi ring with gold, blue and violet heat-tint bands up its height" width="1600" height="1600" loading="lazy" decoding="async"></div>
+            <div class="tile__head"><h3>Sets each band’s process parameters</h3></div>
+            <p>The map for each composition set the laser parameters for its band of the part.</p>
+          </a>
+          <a class="tile span-6" href="adaptive-control.html">
+            <div class="tile__media" style="--tile-ratio: 16 / 10"><img src="img/ilm-adaptive-b.jpg" srcset="img/ilm-adaptive-b-480.jpg 480w, img/ilm-adaptive-b-800.jpg 800w, img/ilm-adaptive-b.jpg 1054w" sizes="(max-width: 639px) 291vw, (max-width: 1023px) 56vw, 813px" alt="Two clean prints of Sandia’s interlocking geometry, versions V2 and V1" width="1054" height="540" loading="lazy" decoding="async"></div>
+            <div class="tile__head"><h3>Seeds the process control loop</h3></div>
+            <p>The map sets the first layer’s settings; the control loop moves them as the part heats up.</p>
+          </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer closing" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Open to LPBF process development roles</h2>
+        <p>Industry R&amp;D in metal additive manufacturing. Email reaches me fastest, at taresh@tamu.edu.</p>
+      </div>
+      <a class="btn btn--primary btn--xl" href="mailto:taresh@tamu.edu">Email Taresh<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="index.html"><span class="mark" data-mark="stack" aria-hidden="true"></span>Taresh Guleria</a>
+          <p class="footer__lede">LPBF process control at Texas A&amp;M.</p>
+        </div>
+        <div class="span-2 start-7 footer__col"><h3>Work</h3><ul>
+          <li><a href="adaptive-control.html">Adaptive parameters</a></li>
+          <li><a href="process-windows.html">Process windows</a></li>
+          <li><a href="qualification.html">Qualification</a></li>
+          <li><a href="graded-builds.html">Graded builds</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>About</h3><ul>
+          <li><a href="about.html">About me</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="resume.pdf">Résumé</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Contact</h3><ul>
+          <li><a href="mailto:taresh@tamu.edu">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/taresh-singh-guleria-1b9645151/">LinkedIn</a></li>
+          <li><a href="https://scholar.google.com/citations?user=kuplWmIAAAAJ">Google Scholar</a></li>
+          <li><a href="https://github.com/taresh-tamu">GitHub</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Taresh Guleria</span>
+        <span>College Station, Texas</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+</body>
+</html>
